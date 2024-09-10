@@ -1,7 +1,9 @@
+import LoginForm from "@/components/auth/LoginForm";
+
 export default function Home() {
   return (
-    <div>
-      <h1>Add Landing Page Here</h1>
+    <div className="h-screen w-screen flex items-center justify-center">
+      <LoginForm />
     </div>
   );
 }
