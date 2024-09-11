@@ -1,4 +1,3 @@
-import AuthAction from "./AuthAction";
 import AuthDivider from "./AuthDivider";
 import EmailForm from "./EmailForm";
 import LoginFormHeader from "./LoginFormHeader";
@@ -12,7 +11,6 @@ const LoginForm = () => {
       <div className="flex flex-col gap-6 w-full p-10 ">
         <LoginFormText />
         <EmailForm />
-        <AuthAction type="Get Started" />
         <AuthDivider />
         <SocialButtons />
       </div>

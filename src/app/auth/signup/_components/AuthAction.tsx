@@ -1,12 +1,20 @@
 import { Button } from "@/components/ui/button";
 
 type AuthActionProps = {
-  type: string;
+  text: string;
+  type?: "submit" | "button";
+  disabled?: boolean;
 };
 
-const AuthAction = ({ type }: AuthActionProps) => {
+const AuthAction = ({
+  text,
+  type = "button",
+  disabled = false,
+}: AuthActionProps) => {
   return (
     <Button
+      disabled={disabled}
+      type={type}
       className="
           w-full 
           bg-gradient-to-b from-gray-800 to-gray-900 
@@ -25,7 +33,7 @@ const AuthAction = ({ type }: AuthActionProps) => {
       py-6
         "
     >
-      <span className=" z-10">{type}</span>
+      <span className=" z-10">{text}</span>
       <span
         className="
             absolute 

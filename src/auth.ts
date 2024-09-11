@@ -17,10 +17,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   }),
 
   providers: [
-    Google,
-    GitHub,
+    Google({
+      allowDangerousEmailAccountLinking: true,
+    }),
+    GitHub({
+      allowDangerousEmailAccountLinking: true,
+    }),
     Resend({
       from: "akshit@akshit.app",
     }),
   ],
+  pages: {
+    signIn: "/auth/signup",
+    error: "/auth/error",
+  },
 });
