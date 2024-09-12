@@ -4,8 +4,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex items-center justify-center h-screen w-screen">
-      {children}
-    </div>
+    <html lang="en">
+      <body>
+        <div className="flex items-center justify-center h-screen w-screen">
+          {children}
+        </div>
+      </body>
+    </html>
   );
 }
