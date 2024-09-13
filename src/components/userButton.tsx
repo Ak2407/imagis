@@ -16,14 +16,10 @@ import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 
 type UserButtonProps = {
-  sidebar?: boolean;
   session: Session | null;
 };
 
-export default function UserButton({
-  sidebar = false,
-  session,
-}: UserButtonProps) {
+export default function UserButton({ session }: UserButtonProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -40,7 +36,7 @@ export default function UserButton({
         className="w-56"
         align="end"
         forceMount
-        side={sidebar ? "right" : "bottom"}
+        side="bottom"
       >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">

@@ -11,8 +11,9 @@ import MobileNavbar from "./MobileNav";
 
 const Navbar = () => {
   const { data: session } = useSession();
-  const [activeNavItem, setActiveNavItem] = useState<string>("/");
+
   const [isSticky, setIsSticky] = useState(false);
+  const [activeNavItem, setActiveNavItem] = useState<string>("/");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -37,9 +38,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`flex flex-row justify-between items-center w-[80%]  px-4 py-2 transition-all duration-200 ease-in ${
+      className={`flex flex-row justify-between items-center w-[80%]   px-4 py-2 transition-all duration-200 ease-in ${
         isSticky
-          ? "shadow-sm drop-shadow-sm blur-0 shadow-gray-50 sticky top-2  w-[92%] lg:w-[80%] border border-slate-300 py-2 px-6 rounded-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 z-50"
+          ? "shadow-sm drop-shadow-sm blur-0 shadow-gray-50 sticky top-2  w-[92%] lg:w-[80%] border border-slate-300 py-2 md:py-4 px-6 rounded-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 z-50"
           : ""
       }`}
     >
