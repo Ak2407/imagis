@@ -94,7 +94,7 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="flex flex-row justify-between items-center pt-4 border-t border-gray-100 pb-2 ">
-        <div className="flex flex-row gap-2 items-center">
+        <div className="flex flex-row gap-4 items-center">
           <Avatar className="h-10 w-10">
             <AvatarImage
               src={session?.user?.image ?? "/placeholder-avatar.png"}
@@ -102,8 +102,8 @@ const Sidebar = () => {
             <AvatarFallback>{session?.user?.name?.[0]}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col items-start justify-center">
-            <h1 className="text-sm">{session?.user?.name}</h1>
-            <p className="text-xs">{session?.user?.email}</p>
+            <h1 className="text-[10px] sm:text-sm">{session?.user?.name}</h1>
+            <p className="text-[8px] sm:text-xs">{session?.user?.email}</p>
           </div>
         </div>
         <Button
