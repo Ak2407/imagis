@@ -24,7 +24,6 @@ export default function UserButton({
   sidebar = false,
   session,
 }: UserButtonProps) {
-  console.log(session);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

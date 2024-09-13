@@ -1,15 +1,9 @@
-export default function DashboardLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
-      <body>
-        <div className="flex items-center justify-center h-screen w-screen">
-          {children}
-        </div>
-      </body>
-    </html>
+    <div className="flex items-center justify-center h-screen w-screen">
+      {children}
+    </div>
   );
-}
+};
+
+export default DashboardLayout;

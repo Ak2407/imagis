@@ -18,6 +18,9 @@ import {
   FormItem,
   FormMessage,
 } from "../../../../components/ui/form";
+import { signIn } from "next-auth/react";
+
+export const runtime = "edge";
 
 const EmailForm = () => {
   const form = useForm<z.infer<typeof SignInSchema>>({
@@ -26,6 +29,19 @@ const EmailForm = () => {
       email: "",
     },
   });
+
+  const resendSignIn = async (values: z.infer<typeof SignInSchema>) => {
+    const validatedFields = SignInSchema.safeParse(values);
+
+    if (!validatedFields.success) {
+      throw new Error("Invalid fields");
+    }
+    const res = await signIn("resend", {
+      email: values.email,
+      redirect: false,
+    });
+    return res;
+  };
 
   const [isPending, startTransition] = useTransition();
   const [emailSent, setEmailSent] = useState(false);

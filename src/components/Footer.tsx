@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 const Footer = () => {
   return (
-    <div className="w-full p-6 flex flex-col md:flex-row items-center justify-start gap-4 border-t">
+    <div className="w-full p-6 pb-2 flex flex-col md:flex-row items-center justify-start gap-4 border-t">
       <Logo noText />
       <p className="text-slate-800 text-center">
         Built by{" "}

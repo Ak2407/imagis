@@ -44,11 +44,6 @@ const Navbar = () => {
           : ""
       }`}
     >
-      {/* <div className="md:hidden"> */}
-      {/*   <Button variant="ghost" size="icon"> */}
-      {/*     <Menu className="w-6 h-6 text-slate-500 hover:text-slate-800 hover:no-underline" /> */}
-      {/*   </Button> */}
-      {/* </div> */}
       <MobileNavbar />
       <div className="hidden md:flex flex-row items-center justify-center gap-10 ">
         <Logo />

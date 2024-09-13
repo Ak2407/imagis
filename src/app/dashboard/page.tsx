@@ -1,11 +1,17 @@
+import { auth } from "@/auth";
 import Logo from "@/components/Logo";
-import UserButton from "@/components/userButton";
+import { redirect } from "next/navigation";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/auth/signup");
+  }
+
   return (
     <div>
       <Logo />
-      {/* <UserButton /> */}
     </div>
   );
 }
