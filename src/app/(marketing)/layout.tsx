@@ -11,7 +11,7 @@ const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
 
       <Footer />
-      <div className="fixed inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none " />
+      {/* <div className="fixed inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none " /> */}
     </div>
   );
 };
