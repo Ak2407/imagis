@@ -12,7 +12,6 @@ export default function SocialButtons() {
   const handleSignIn = async (provider: "google" | "github") => {
     setIsPending(true);
     await signIn(provider, { redirectTo: "/dashboard" });
-    setIsPending(false);
   };
 
   return (

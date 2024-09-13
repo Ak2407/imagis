@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { useSession } from "next-auth/react";
 import UserButton from "./userButton";
 import { useEffect, useState, useCallback } from "react";
-import { Menu } from "lucide-react";
 import MobileNavbar from "./MobileNav";
 
 const Navbar = () => {
@@ -38,9 +37,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`flex flex-row justify-between items-center w-full px-4 py-2 transition-all duration-300 ease-in-out ${
+      className={`flex flex-row justify-between items-center w-[80%]  px-4 py-2 transition-all duration-200 ease-in ${
         isSticky
-          ? "shadow-sm drop-shadow-sm blur-0 shadow-gray-50 sticky top-4 w-[90%] border border-slate-300 py-2 px-6 rounded-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 z-50"
+          ? "shadow-sm drop-shadow-sm blur-0 shadow-gray-50 sticky top-2  w-[92%] lg:w-[80%] border border-slate-300 py-2 px-6 rounded-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 z-50"
           : ""
       }`}
     >
