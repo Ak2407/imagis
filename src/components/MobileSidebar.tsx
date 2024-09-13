@@ -32,7 +32,7 @@ const MobileSidebar = () => {
         <Menu className="h-6 w-6 text-slate-500 hover:text-slate-800 hover:no-underline" />
       </Button>
       <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent side="left">
+        <SheetContent side="left" className="overflow-y-scroll">
           <Sidebar />
         </SheetContent>
       </Sheet>

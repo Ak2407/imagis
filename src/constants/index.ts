@@ -49,4 +49,32 @@ export const sidebarItems = [
   {
     title: "The structure of the universe",
   },
+
+  {
+    title: "What to wear today",
+  },
+  {
+    title: "How to center a div",
+  },
+  {
+    title: "Why is the sky blue?",
+  },
+  {
+    title: "The history of the universe",
+  },
+  {
+    title: "A brief history of time",
+  },
+  {
+    title: "An introduction to the universe",
+  },
+  {
+    title: "The structure of the universe",
+  },
+  {
+    title: "What is the meaning of life?",
+  },
+  {
+    title: "The structure of the universe",
+  },
 ];
