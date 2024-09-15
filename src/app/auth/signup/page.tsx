@@ -11,7 +11,7 @@ const SignupPage = () => {
           <Button variant="link" size="lg">
             <div className="flex items-center justify-center gap-2">
               <ArrowLeft className="h-5 w-5" />
-              <h1 className="">Back</h1>
+              <h1 className="">Back to Home</h1>
             </div>
           </Button>
         </Link>
