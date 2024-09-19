@@ -1,4 +1,4 @@
-import { Bird } from "lucide-react";
+import { Cuboid } from "lucide-react";
 import Link from "next/link";
 
 type LogoProps = {
@@ -16,9 +16,9 @@ const Logo = ({
     <div className="">
       <Link
         href={noLink ? "" : "/"}
-        className="flex flex-row items-center justify-center gap-2 text-zinc-600"
+        className="flex flex-row items-center justify-center gap-2 text-slate-600"
       >
-        <Bird
+        <Cuboid
           className={`${noText ? "h-14 w-14" : "h-10 w-10"} `}
           strokeWidth={1.5}
         />
@@ -27,7 +27,7 @@ const Logo = ({
             footer || noText ? "hidden" : ""
           }`}
         >
-          Twitly
+          Template
         </h1>
       </Link>
     </div>

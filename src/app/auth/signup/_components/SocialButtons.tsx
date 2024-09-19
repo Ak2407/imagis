@@ -5,19 +5,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 export default function SocialButtons() {
   const [isPending, setIsPending] = useState(false);
-  const searchParams = useSearchParams();
-
-  const nextUrl = searchParams.get("next") || "https://x.com/home";
-
-  console.log("Next URL:", nextUrl);
 
   const handleSignIn = async (provider: "google" | "github") => {
     setIsPending(true);
-    await signIn(provider, { redirectTo: nextUrl });
+    await signIn(provider, { redirectTo: "/dashboard" });
   };
 
   return (

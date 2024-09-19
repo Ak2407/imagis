@@ -5,9 +5,8 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
-  title: "Twitly | AI powered Twitter reply bot",
-  description:
-    "AI powered Twitter reply bot for removing the hassle of writing reply to tweets.",
+  title: "This is the starter Template",
+  description: "Developed by Akshit Gupta at https://www.akshit.app/",
 };
 
 export default function RootLayout({
