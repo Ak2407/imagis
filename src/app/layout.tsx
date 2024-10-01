@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
+import { DM_Sans } from "next/font/google";
 
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "This is the starter Template",
@@ -16,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${GeistSans.className}`}>
+      <body className={`${dmSans.className} bg-gray-50`}>
         <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
