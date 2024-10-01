@@ -14,7 +14,7 @@ const Footer = () => {
         >
           akshit
         </Link>
-        . The source code is available at{" "}
+        .Source code is available at{" "}
         <Link
           href="https://github.com/Ak2407"
           className="font-medium underline underline-offset-4 text-slate-800"
