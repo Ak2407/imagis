@@ -8,7 +8,7 @@ type CreateBarProps = {
 
 const CreateBar = ({ placeholder, disabled = false }: CreateBarProps) => {
   return (
-    <div className="flex flex-row justify-between items-center gap-0 w-[97%] rounded-xl border border-gray-200 shadow-sm font-light bg-white px-4 ">
+    <div className="flex flex-row justify-between items-center gap-0 w-[99%] rounded-xl border border-gray-200 shadow-sm font-light bg-white px-4 ">
       <div className="flex flex-row items-center justify-start w-full">
         <ImageIcon className="w-6 h-6 text-stone-400 " />
         <input

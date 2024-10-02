@@ -11,8 +11,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "This is the starter Template",
-  description: "Developed by Akshit Gupta at https://www.akshit.app/",
+  title: "Imagis | AI Image Generator",
+  description: "This is a demo of Imagis, an AI image generator.",
 };
 
 export default function RootLayout({
