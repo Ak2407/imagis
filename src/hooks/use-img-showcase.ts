@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-type MobileNavbarStore = {
+type ImageShowcaseStore = {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 };
 
-export const useMobileNavbar = create<MobileNavbarStore>((set) => ({
+export const useImageShowcase = create<ImageShowcaseStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),

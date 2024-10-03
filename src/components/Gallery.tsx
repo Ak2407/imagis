@@ -2,10 +2,22 @@
 
 import { images } from "@/constants";
 import Image from "next/image";
+import ImgShowcase from "./dialog/imgShowcase";
+import { useState } from "react";
+import { useImageShowcase } from "@/hooks/use-img-showcase";
 
 export default function Gallery() {
+  const [image, setImage] = useState("");
+
+  const onOpen = useImageShowcase((state) => state.onOpen);
+  const onClose = useImageShowcase((state) => state.onClose);
+  const isOpen = useImageShowcase((state) => state.isOpen);
+
+  const onClick = (e: any) => {};
+
   return (
     <div className="mx-auto">
+      <ImgShowcase image={images[0].src} />
       <div className="columns-2 md:columns-3 xl:columns-4 2xl:columns-5  gap-[3px] space-y-[3px]">
         {images.map((image) => (
           <div key={image.id} className="relative group cursor-pointer">
@@ -15,6 +27,7 @@ export default function Gallery() {
               width={500}
               height={750}
               className="w-full h-auto rounded-[2px] "
+              onClick={onClick}
             />
             <div
               className="pointer-events-none absolute opacity-0 flex items-end inset-0 group-hover:opacity-100"
