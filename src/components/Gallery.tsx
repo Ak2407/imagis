@@ -7,17 +7,20 @@ import { useState } from "react";
 import { useImageShowcase } from "@/hooks/use-img-showcase";
 
 export default function Gallery() {
-  const [image, setImage] = useState("");
+  const [showImg, setShowImg] = useState("");
 
   const onOpen = useImageShowcase((state) => state.onOpen);
   const onClose = useImageShowcase((state) => state.onClose);
   const isOpen = useImageShowcase((state) => state.isOpen);
 
-  const onClick = (e: any) => {};
+  const onClick = (e: any) => {
+    onOpen();
+    setShowImg(e.target.src);
+  };
 
   return (
     <div className="mx-auto">
-      <ImgShowcase image={images[0].src} />
+      <ImgShowcase image={showImg} isOpen={isOpen} onClose={onClose} />
       <div className="columns-2 md:columns-3 xl:columns-4 2xl:columns-5  gap-[3px] space-y-[3px]">
         {images.map((image) => (
           <div key={image.id} className="relative group cursor-pointer">

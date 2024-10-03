@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.className} bg-gray-50 px-4 md:pr-10 `}>
+      <body className={`${dmSans.className} bg-gray-50 `}>
         <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
