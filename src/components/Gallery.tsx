@@ -2,25 +2,20 @@
 
 import { images } from "@/constants";
 import Image from "next/image";
-import ImgShowcase from "./dialog/imgShowcase";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useImageShowcase } from "@/hooks/use-img-showcase";
 
 export default function Gallery() {
+  const router = useRouter();
+
   const [showImg, setShowImg] = useState("");
 
-  const onOpen = useImageShowcase((state) => state.onOpen);
-  const onClose = useImageShowcase((state) => state.onClose);
-  const isOpen = useImageShowcase((state) => state.isOpen);
-
   const onClick = (e: any) => {
-    onOpen();
-    setShowImg(e.target.src);
+    router.push("/showcase");
   };
 
   return (
     <div className="mx-auto">
-      <ImgShowcase image={showImg} isOpen={isOpen} onClose={onClose} />
       <div className="columns-2 md:columns-3 xl:columns-4 2xl:columns-5  gap-[3px] space-y-[3px]">
         {images.map((image) => (
           <div key={image.id} className="relative group cursor-pointer">

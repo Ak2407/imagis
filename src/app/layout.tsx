@@ -4,6 +4,7 @@ import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
+import Sidebar from "@/components/Sidebar";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -23,10 +24,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.className} bg-gray-50 `}>
+      <body className={`${dmSans.className} bg-gray-50`}>
         <SessionProvider>
-          <Toaster />
-          {children}
+          <div className="flex flex-row px-4 md:pr-10">
+            <Toaster />
+            <Sidebar />
+            {children}
+          </div>
         </SessionProvider>
       </body>
     </html>

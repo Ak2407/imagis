@@ -3,10 +3,16 @@ import LoginForm from "./_components/LoginForm";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-const SignupPage = () => {
+type SignupPageProps = {
+  isModal?: boolean;
+};
+
+const SignupPage = ({ isModal = false }: SignupPageProps) => {
   return (
-    <div className="w-screen h-screen flex flex-col items-start justify-center gap-2 ">
-      <div className="flex items-center justify-start w-full pt-4 pl-4 ">
+    <div className="w-full h-full flex flex-col items-start justify-center gap-2 ">
+      <div
+        className={`flex items-center justify-start w-full pt-4 pl-4 ${isModal ? "hidden" : "flex"} `}
+      >
         <Link href="/">
           <Button variant="link" size="lg">
             <div className="flex items-center justify-center gap-2">

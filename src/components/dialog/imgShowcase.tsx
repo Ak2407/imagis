@@ -1,6 +1,5 @@
 import Showcase from "@/app/showcase/page";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Drawer, DrawerContent } from "@/components/ui/drawer";
 
 type ImgShowcaseProps = {
   image: string;
@@ -11,7 +10,7 @@ type ImgShowcaseProps = {
 const ImgShowcase = ({ image, onClose, isOpen }: ImgShowcaseProps) => {
   return (
     <div>
-      <div className="hidden md:block">
+      <div className="">
         <Dialog
           open={isOpen}
           onOpenChange={(open) => !open && onClose && onClose()}
@@ -21,16 +20,6 @@ const ImgShowcase = ({ image, onClose, isOpen }: ImgShowcaseProps) => {
           </DialogContent>
         </Dialog>
       </div>
-      {/* <div className="block md:hidden"> */}
-      {/*   <Drawer */}
-      {/*     open={isOpen} */}
-      {/*     onOpenChange={(open) => !open && onClose && onClose()} */}
-      {/*   > */}
-      {/*     <DrawerContent> */}
-      {/*       <Showcase image={image} /> */}
-      {/*     </DrawerContent> */}
-      {/*   </Drawer> */}
-      {/* </div> */}
     </div>
   );
 };
