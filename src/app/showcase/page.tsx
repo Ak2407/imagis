@@ -1,6 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { images } from "@/constants";
+import { X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
@@ -25,9 +27,12 @@ const Showcase = ({ image }: ShowcaseProps) => {
   return (
     <div className="flex flex-col md:flex-row  items-center justify-between w-screen h-screen ">
       <div
-        className="flex items-center justify-center bg-gray-100 p-8 w-full h-full flex-1 "
+        className="flex items-center justify-center bg-gray-100 p-8 w-full h-full flex-1 relative "
         onClick={onClickOutside}
       >
+        <Button variant="ghost" size="icon" className="absolute top-4 right-4">
+          <X className="w-5 h-5" />
+        </Button>
         <Image
           src={images[12].src}
           alt="Showcase image"
@@ -40,13 +45,13 @@ const Showcase = ({ image }: ShowcaseProps) => {
         />
       </div>
 
-      <div className="flex flex-col gap-4 items-center justify-start p-10 bg-gray-50 w-full h-full max-w-[300px]  ">
+      <div className="flex flex-col gap-4 items-center justify-start p-10 bg-gray-50 w-full h-full max-w-[350px]  ">
         <div className="flex flex-row gap-4 justify-start items-center w-full font-light">
           <p className="text-[15px] text-neutral-600">akshit</p>
           <p className="text-xs text-stone-500">22h</p>
         </div>
         <p
-          className="text-sm text-[14px] font-light text-neutral-900 cursor-copy hover:opacity-50 transition-all ease-in-out duration-300"
+          className="text-sm text-[14px] font-normal text-neutral-900 cursor-copy hover:opacity-50 transition-all ease-in-out duration-300"
           onClick={handleCopy}
         >
           black and white illustration in a 1920 German children's book called

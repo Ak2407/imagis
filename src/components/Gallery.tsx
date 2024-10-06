@@ -3,15 +3,12 @@
 import { images } from "@/constants";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 export default function Gallery() {
   const router = useRouter();
 
-  const [showImg, setShowImg] = useState("");
-
-  const onClick = (e: any) => {
-    router.push("/showcase");
+  const onClick = (imageId: number) => () => {
+    router.push(`/${imageId}`);
   };
 
   return (
@@ -23,9 +20,9 @@ export default function Gallery() {
               src={image.src}
               alt="Coastal scene"
               width={500}
-              height={750}
+              height={500}
               className="w-full h-auto rounded-[2px] "
-              onClick={onClick}
+              onClick={onClick(image.id)}
             />
             <div
               className="pointer-events-none absolute opacity-0 flex items-end inset-0 group-hover:opacity-100"

@@ -5,6 +5,7 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
 import Sidebar from "@/components/Sidebar";
+import CreateBar from "@/components/CreateBar";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({
           <div className="flex flex-row px-4 md:pr-10">
             <Toaster />
             <Sidebar />
+
             {children}
           </div>
         </SessionProvider>
