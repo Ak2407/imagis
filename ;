@@ -1,0 +1,21 @@
+import Image from "next/image";
+
+type GeneratedImageProps = {
+  imageUrl: string;
+};
+
+const GeneratedImage = ({ imageUrl }: GeneratedImageProps) => {
+  return (
+    <div className="h-full w-full">
+      <Image
+        src={}
+        alt="Generated Image"
+        height={500}
+        width={500}
+        className=""
+      />
+    </div>
+  );
+};
+
+export default GeneratedImage;

@@ -2,27 +2,35 @@
 
 import { images } from "@/constants";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import ImgShowcase from "./dialog/imgShowcase";
+import { useImgShowcaseStore } from "@/hooks/use-img-showcase";
+import { useState } from "react";
 
 export default function Gallery() {
-  const router = useRouter();
+  const [currentImage, setCurrentImage] = useState("");
 
-  const onClick = (imageId: number) => () => {
-    router.push(`/${imageId}`);
+  const isOpen = useImgShowcaseStore((state) => state.isOpen);
+  const onOpen = useImgShowcaseStore((state) => state.onOpen);
+  const onClose = useImgShowcaseStore((state) => state.onClose);
+
+  const onClick = (src: string) => () => {
+    setCurrentImage(src);
+    onOpen();
   };
 
   return (
     <div className="mx-auto">
       <div className="columns-2 md:columns-3 xl:columns-4 2xl:columns-5  gap-[3px] space-y-[3px]">
+        <ImgShowcase image={currentImage} isOpen={isOpen} onClose={onClose} />
         {images.map((image) => (
           <div key={image.id} className="relative group cursor-pointer">
             <Image
               src={image.src}
-              alt="Coastal scene"
+              alt="Ai generated image"
               width={500}
               height={500}
               className="w-full h-auto rounded-[2px] "
-              onClick={onClick(image.id)}
+              onClick={onClick(image.src)}
             />
             <div
               className="pointer-events-none absolute opacity-0 flex items-end inset-0 group-hover:opacity-100"

@@ -5,7 +5,6 @@ import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
 import Sidebar from "@/components/Sidebar";
-import CreateBar from "@/components/CreateBar";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
