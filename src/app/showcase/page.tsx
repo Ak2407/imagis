@@ -15,7 +15,7 @@ const Showcase = ({ image }: ShowcaseProps) => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6 w-full h-full">
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 w-full h-full ">
       <div className="flex items-center justify-center w-full h-full ">
         <div className="relative w-full h-full ">
           <Image
@@ -36,9 +36,9 @@ const Showcase = ({ image }: ShowcaseProps) => {
           className="text-sm text-[14px] font-normal text-neutral-900 cursor-pointer hover:opacity-50 transition-all ease-in-out duration-300"
           onClick={handleCopy}
         >
-          black and white illustration in a 1920 German children's book called
-          "The Horse Who Loved His Harness" showing an adolescent girl adjusting
-          the harness of a white horse in springtime
+          black and white illustration in a 1920 German children book called The
+          Horse Who Loved His Harness showing an adolescent girl adjusting the
+          harness of a white horse in springtime
         </p>
       </div>
     </div>

@@ -28,17 +28,17 @@ const Create = () => {
             </h1>
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start w-full max-w-full gap-10 ">
+          <div className="flex flex-col gap-10 justify-center items-center lg:items-start h-full w-full ">
             {loading ? (
               <GeneratedImage.Skeleton />
             ) : (
               <>
-                <GeneratedImage imageUrl={imageSrc} />
-                <div className="flex flex-row lg:flex-col gap-10 h-full items-start justify-start  ">
+                <div className="flex flex-row w-full  gap-10 items-center justify-center ">
                   <Button>Save</Button>
                   <Button>Discard</Button>
                   <Button>Regenrate</Button>
                 </div>
+                <GeneratedImage imageUrl={imageSrc} />
               </>
             )}
           </div>

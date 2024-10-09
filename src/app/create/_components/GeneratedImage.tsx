@@ -1,4 +1,5 @@
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 type GeneratedImageProps = {
   imageUrl: string;
@@ -6,11 +7,13 @@ type GeneratedImageProps = {
 
 const GeneratedImage = ({ imageUrl }: GeneratedImageProps) => {
   return (
-    <div className="h-full lg:max-w-[80%] ">
-      <img
+    <div className="h-full w-full relative ">
+      <Image
         src={imageUrl}
         alt="Generated Image"
-        className="rounded-lg max-h-[700px] max-w-full object-contain "
+        layout="fill"
+        objectFit="contain"
+        className="lg:max-w-[80%] mx-auto"
       />
     </div>
   );

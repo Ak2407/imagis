@@ -36,7 +36,9 @@ const CreateBar = ({ setImageSrc, setLoading }: CreateBarProps) => {
     if (inputValue.length > 0) {
       setLoading(true);
       const randomSeed = generateRandomNumber();
-      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=1080&height=1920?seed=${randomSeed}&nologo=True`;
+      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=1280&height=720?seed=${randomSeed}&nologo=True`;
+      // const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=520&height=520?seed=${randomSeed}&nologo=True`;
+      // const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=1080&height=1920?seed=${randomSeed}&nologo=True`;
       const generatedImage = await axios.post(imageURL);
       if (generatedImage) {
         setImageSrc(imageURL);
