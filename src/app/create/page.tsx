@@ -3,14 +3,8 @@
 import CreateBar from "@/components/CreateBar";
 import GeneratedImage from "./_components/GeneratedImage";
 import { useEffect, useState } from "react";
-import {} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  PencilRuler,
-  BanIcon,
-  DownloadIcon,
-  RotateCcwIcon,
-} from "lucide-react";
+import { PencilRuler, BanIcon, DownloadIcon } from "lucide-react";
 
 const Create = () => {
   const [imageSrc, setImageSrc] = useState<string>("");
@@ -33,11 +27,6 @@ const Create = () => {
   const handleDiscard = () => {
     setImageSrc("");
     setLoading(false);
-  };
-
-  const handleRegenerate = () => {
-    setImageSrc("");
-    setLoading(true);
   };
 
   return (

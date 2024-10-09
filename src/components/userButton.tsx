@@ -35,10 +35,10 @@ export default function UserButton({ session }: UserButtonProps) {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="h-full w-full disabled:opacity-40 hover:bg-transparent flex flex-row items-center justify-start gap-2 "
+          className="h-full disabled:opacity-40 hover:bg-transparent flex flex-row items-center justify-start gap-2 "
           disabled={disabled}
         >
-          <Avatar className="h-8 w-8 xl:hidden ">
+          <Avatar className="h-10 w-10 xl:hidden ">
             <AvatarImage
               src={session?.user?.image ?? "/placeholder-avatar.png"}
             />

@@ -16,6 +16,27 @@ export const sideBarItems = [
   },
 ];
 
+export const socialLinks = [
+  {
+    name: "Github",
+    href: "https://github.com/Ak2407",
+    icon: "GithubIcon",
+    bg: "text-neutral-900",
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/DevAxit",
+    icon: "TwitterIcon",
+    bg: "text-blue-500",
+  },
+  {
+    name: "Profile",
+    href: "https://www.akshit.app/",
+    icon: "PersonStanding",
+    bg: "text-yellow-600",
+  },
+];
+
 export const images = [
   {
     id: 1,

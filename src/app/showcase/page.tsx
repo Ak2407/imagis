@@ -17,7 +17,7 @@ const Showcase = ({ image }: ShowcaseProps) => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 w-full h-full ">
       <div className="flex items-center justify-center w-full h-full ">
-        <div className="relative w-full h-full ">
+        <div className="relative w-full h-full min-h-[500px] max-h-full">
           <Image
             src={image}
             alt="Showcase image"
