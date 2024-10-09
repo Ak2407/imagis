@@ -3,8 +3,14 @@
 import CreateBar from "@/components/CreateBar";
 import GeneratedImage from "./_components/GeneratedImage";
 import { useEffect, useState } from "react";
-import { PencilRuler } from "lucide-react";
+import {} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  PencilRuler,
+  BanIcon,
+  DownloadIcon,
+  RotateCcwIcon,
+} from "lucide-react";
 
 const Create = () => {
   const [imageSrc, setImageSrc] = useState<string>("");
@@ -14,8 +20,28 @@ const Create = () => {
     console.log(loading);
   }, [loading]);
 
+  const handleDownload = () => {
+    if (imageSrc !== "") {
+      const link = document.createElement("a");
+      link.href = imageSrc;
+      link.download = "image.png";
+      link.target = "_blank";
+      link.click();
+    }
+  };
+
+  const handleDiscard = () => {
+    setImageSrc("");
+    setLoading(false);
+  };
+
+  const handleRegenerate = () => {
+    setImageSrc("");
+    setLoading(true);
+  };
+
   return (
-    <div className="flex flex-col gap-2 items-center relative w-full h-screen max-h-screen ">
+    <div className="flex flex-col gap-2 items-center relative w-full h-screen max-h-screen pb-40 sm:pb-0 ">
       <div className="sticky top-0 z-[20] flex items-center justify-center w-full  pt-4 pb-8 ">
         <CreateBar setImageSrc={setImageSrc} setLoading={setLoading} />
       </div>
@@ -33,10 +59,24 @@ const Create = () => {
               <GeneratedImage.Skeleton />
             ) : (
               <>
-                <div className="flex flex-row w-full  gap-10 items-center justify-center ">
-                  <Button>Save</Button>
-                  <Button>Discard</Button>
-                  <Button>Regenrate</Button>
+                <div className="flex flex-row w-full  gap-6 items-center justify-center ">
+                  <Button
+                    onClick={handleDownload}
+                    variant="ghost"
+                    className="flex items-center justify-center gap-2 text-white bg-green-500 hover:bg-green-600 border border-green-600 hover:text-white"
+                  >
+                    <DownloadIcon className="w-4 h-4 " />
+                    <h1>Download</h1>
+                  </Button>
+
+                  <Button
+                    onClick={handleDiscard}
+                    variant="ghost"
+                    className="flex items-center justify-center gap-2 text-white bg-red-500 hover:bg-red-600 border border-red-600 hover:text-white"
+                  >
+                    <BanIcon className="w-4 h-4 " />
+                    <h1>Discard</h1>
+                  </Button>
                 </div>
                 <GeneratedImage imageUrl={imageSrc} />
               </>

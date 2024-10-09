@@ -1,12 +1,12 @@
 "use client";
 
 import { ImageIcon, SlidersHorizontal } from "lucide-react";
-import { Button } from "./ui/button";
 import { useSession } from "next-auth/react";
 import axios from "axios";
 
 import { useState } from "react";
 import { toast } from "sonner";
+import ScreenSelector from "./ScreenSelector";
 
 type CreateBarProps = {
   setImageSrc: (imageSrc: string) => void;
@@ -15,6 +15,7 @@ type CreateBarProps = {
 
 const CreateBar = ({ setImageSrc, setLoading }: CreateBarProps) => {
   const [inputValue, setInputValue] = useState<string>("");
+  const [screenSize, setScreenSize] = useState<string>("mobile");
   const { data: session } = useSession();
 
   const handleClick = () => {
@@ -36,9 +37,25 @@ const CreateBar = ({ setImageSrc, setLoading }: CreateBarProps) => {
     if (inputValue.length > 0) {
       setLoading(true);
       const randomSeed = generateRandomNumber();
-      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=1280&height=720?seed=${randomSeed}&nologo=True`;
-      // const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=520&height=520?seed=${randomSeed}&nologo=True`;
-      // const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=1080&height=1920?seed=${randomSeed}&nologo=True`;
+      let width = 1080;
+      let height = 1920;
+
+      switch (screenSize) {
+        case "mobile":
+          width = 1080;
+          height = 1920;
+          break;
+        case "laptop":
+          width = 1280;
+          height = 720;
+          break;
+        case "square":
+          width = 520;
+          height = 520;
+          break;
+      }
+
+      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=${width}&height=${height}?seed=${randomSeed}&nologo=True`;
       const generatedImage = await axios.post(imageURL);
       if (generatedImage) {
         setImageSrc(imageURL);
@@ -74,12 +91,11 @@ const CreateBar = ({ setImageSrc, setLoading }: CreateBarProps) => {
           onKeyDown={handleKeyDown}
         />
       </div>
-      <Button size="icon" variant="ghost" disabled={!session}>
-        <SlidersHorizontal
-          className="w-6 h-6 text-gray-400 "
-          strokeWidth={2.0}
-        />
-      </Button>
+      <ScreenSelector
+        disabled={!session}
+        screenSize={screenSize}
+        setScreenSize={setScreenSize}
+      />
     </div>
   );
 };

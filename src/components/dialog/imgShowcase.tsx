@@ -1,5 +1,9 @@
+"use client";
+
 import Showcase from "@/app/showcase/page";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { useState, useEffect } from "react";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 
 type ImgShowcaseProps = {
   image: string;
@@ -8,18 +12,41 @@ type ImgShowcaseProps = {
 };
 
 const ImgShowcase = ({ image, onClose, isOpen }: ImgShowcaseProps) => {
-  return (
-    <div>
-      <div className="">
-        <Dialog
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => setIsMobile(window.innerWidth < 790);
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div>
+        <Drawer
           open={isOpen}
           onOpenChange={(open) => !open && onClose && onClose()}
         >
-          <DialogContent className="max-w-[90%] h-[90%]">
+          <DrawerContent>
             <Showcase image={image} />
-          </DialogContent>
-        </Dialog>
+          </DrawerContent>
+        </Drawer>
       </div>
+    );
+  }
+
+  return (
+    <div>
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => !open && onClose && onClose()}
+        modal={true}
+      >
+        <DialogContent className="max-w-[90%] h-[90%]">
+          <Showcase image={image} />
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
