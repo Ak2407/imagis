@@ -5,8 +5,8 @@ import { ArrowLeft } from "lucide-react";
 
 const SignupPage = () => {
   return (
-    <div className="w-full h-full flex flex-col items-start justify-center gap-2 ">
-      <div className="items-center justify-start w-full pt-4 pl-4 flex ">
+    <div className="w-full h-full flex flex-col items-start justify-center ">
+      <div className="items-center justify-start w-full pt-4 pl-4 hidden md:flex">
         <Link href="/">
           <Button variant="link" size="lg">
             <div className="flex items-center justify-center gap-2">
