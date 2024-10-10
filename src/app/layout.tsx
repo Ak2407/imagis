@@ -15,7 +15,14 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Imagis | AI Image Generator",
-  description: "This is a demo of Imagis, an AI image generator.",
+  description:
+    "Ai image generator , generate unlimited images for free no catch 😉",
+  icons: [
+    {
+      url: "/icon.png",
+      href: "/icon.png",
+    },
+  ],
 };
 
 export default function RootLayout({
