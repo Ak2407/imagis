@@ -1,9 +1,9 @@
 "use client";
 
-import Showcase from "@/app/showcase/page";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useState, useEffect } from "react";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
+import Showcase from "../Showcase";
 
 type ImgShowcaseProps = {
   image: string;

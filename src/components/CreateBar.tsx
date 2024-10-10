@@ -11,9 +11,9 @@ import { useRouter } from "next/navigation";
 import { Skeleton } from "./ui/skeleton";
 
 type CreateBarProps = {
-  setImageSrc: (imageSrc: string) => void;
-  setLoading: (loadingState: boolean) => void;
-  isButton: boolean;
+  setImageSrc?: (imageSrc: string) => void;
+  setLoading?: (loadingState: boolean) => void;
+  isButton?: boolean;
 };
 
 const CreateBar = ({
@@ -49,7 +49,7 @@ const CreateBar = ({
   const handleSubmit = async () => {
     setDisabled(true);
     if (inputValue.length > 0) {
-      setLoading(true);
+      if (setLoading) setLoading(true);
       const randomSeed = generateRandomNumber();
       let width = 1080;
       let height = 1920;
@@ -69,11 +69,16 @@ const CreateBar = ({
           break;
       }
 
-      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(inputValue)}?width=${width}&height=${height}?seed=${randomSeed}&nologo=True`;
+      const imageURL = `https://image.pollinations.ai/prompt/${encodeURIComponent(
+        inputValue
+      )}?width=${width}&height=${height}?seed=${randomSeed}&nologo=True`;
       const generatedImage = await axios.post(imageURL);
       if (generatedImage) {
-        setImageSrc(imageURL);
-        setLoading(false);
+        if (setImageSrc && setLoading) {
+          setImageSrc(imageURL);
+          setLoading(false);
+        }
+
         setDisabled(false);
       }
     } else {
@@ -111,7 +116,9 @@ const CreateBar = ({
             autoFocus={isButton ? false : true}
             type="text"
             placeholder={placeholder}
-            className={`p-[15px] outline-none border-none bg-gray-50 text-stone-500 placeholder:font-light font-normal tracking-wide w-full disabled:cursor-pointer ${!session ? "pointer-events-none" : ""}`}
+            className={`p-[15px] outline-none border-none bg-gray-50 text-stone-500 placeholder:font-light font-normal tracking-wide w-full disabled:cursor-pointer ${
+              !session ? "pointer-events-none" : ""
+            }`}
             disabled={!session || disabled}
             value={inputValue}
             onChange={(e: any) => setInputValue(e.target.value)}
