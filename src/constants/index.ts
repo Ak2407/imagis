@@ -19,7 +19,7 @@ export const sideBarItems = [
 export const socialLinks = [
   {
     name: "Github",
-    href: "https://github.com/Ak2407",
+    href: "https://github.com/Ak2407/imagis",
     icon: "GithubIcon",
   },
   {
