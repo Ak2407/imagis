@@ -17,7 +17,7 @@ const Showcase = ({ image }: ShowcaseProps) => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-6 w-full h-full ">
       <div className="flex items-center justify-center w-full h-full ">
-        <div className="relative w-full h-full min-h-[500px] max-h-full">
+        <div className="relative w-full h-full min-h-[300px] xl:min-h-[500px] max-h-full">
           <Image
             src={image}
             alt="Showcase image"
@@ -33,7 +33,6 @@ const Showcase = ({ image }: ShowcaseProps) => {
           <p className="modal:text-[15px] text-[12px] text-neutral-600">
             akshit
           </p>
-          {/* <p className="text-xs text-stone-500">22h</p> */}
         </div>
         <p
           className="text-xs modal:text-[14px] font-normal text-neutral-900 cursor-pointer hover:opacity-50 transition-all ease-in-out duration-300"
