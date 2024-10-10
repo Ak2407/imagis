@@ -14,16 +14,6 @@ const Create = () => {
     console.log(loading);
   }, [loading]);
 
-  const handleDownload = () => {
-    if (imageSrc !== "") {
-      const link = document.createElement("a");
-      link.href = imageSrc;
-      link.download = "image.png";
-      link.target = "_blank";
-      link.click();
-    }
-  };
-
   const handleDiscard = () => {
     setImageSrc("");
     setLoading(false);
@@ -49,14 +39,15 @@ const Create = () => {
             ) : (
               <>
                 <div className="flex flex-row w-full  gap-6 items-center justify-center ">
-                  <Button
-                    onClick={handleDownload}
-                    variant="ghost"
-                    className="flex items-center justify-center gap-2 text-white bg-green-500 hover:bg-green-600 border border-green-600 hover:text-white"
-                  >
-                    <DownloadIcon className="w-4 h-4 " />
-                    <h1>Download</h1>
-                  </Button>
+                  <a href={imageSrc} download="image.png" target="_blank">
+                    <Button
+                      variant="ghost"
+                      className="flex items-center justify-center gap-2 text-white bg-green-500 hover:bg-green-600 border border-green-600 hover:text-white"
+                    >
+                      <DownloadIcon className="w-4 h-4 " />
+                      <h1>Download</h1>
+                    </Button>
+                  </a>
 
                   <Button
                     onClick={handleDiscard}

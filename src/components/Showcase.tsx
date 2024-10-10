@@ -31,7 +31,7 @@ const Showcase = ({ image }: ShowcaseProps) => {
       <div className="flex flex-col gap-4 items-center justify-start p-4 modal:p-10 bg-gray-50 lg:h-full w-full lg:max-w-[350px] border rounded-lg h-fit ">
         <div className="flex flex-row gap-4 justify-start items-center w-full font-light">
           <p className="modal:text-[15px] text-[12px] text-neutral-600">
-            akshit
+            Prompt:
           </p>
         </div>
         <p
