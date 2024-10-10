@@ -1,6 +1,6 @@
 "use client";
 
-import { images } from "@/constants";
+import { prompts } from "@/constants";
 import Image from "next/image";
 import ImgShowcase from "./dialog/imgShowcase";
 import { useImgShowcaseStore } from "@/hooks/use-img-showcase";
@@ -13,7 +13,7 @@ export default function Gallery() {
   const onOpen = useImgShowcaseStore((state) => state.onOpen);
   const onClose = useImgShowcaseStore((state) => state.onClose);
 
-  const onClick = (src: string) => () => {
+  const onClick = (src: any) => () => {
     setCurrentImage(src);
     onOpen();
   };
@@ -22,15 +22,15 @@ export default function Gallery() {
     <div className="mx-auto">
       <div className="columns-2 md:columns-3 xl:columns-4 2xl:columns-5  gap-[3px] space-y-[3px]">
         <ImgShowcase image={currentImage} isOpen={isOpen} onClose={onClose} />
-        {images.map((image) => (
+        {prompts.map((image) => (
           <div key={image.id} className="relative group cursor-pointer">
             <Image
-              src={image.src}
+              src={image.imageSrc}
               alt="Ai generated image"
               width={500}
               height={500}
               className="w-full h-auto rounded-[2px] "
-              onClick={onClick(image.src)}
+              onClick={onClick(image)}
             />
             <div
               className="pointer-events-none absolute opacity-0 flex items-end inset-0 group-hover:opacity-100"

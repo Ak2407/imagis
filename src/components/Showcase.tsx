@@ -4,7 +4,7 @@ import Image from "next/image";
 import { toast } from "sonner";
 
 type ShowcaseProps = {
-  image: string;
+  image: any;
 };
 
 const Showcase = ({ image }: ShowcaseProps) => {
@@ -19,7 +19,7 @@ const Showcase = ({ image }: ShowcaseProps) => {
       <div className="flex items-center justify-center w-full h-full ">
         <div className="relative w-full h-full min-h-[300px] xl:min-h-[500px] max-h-full">
           <Image
-            src={image}
+            src={image.imageSrc}
             alt="Showcase image"
             layout="fill"
             objectFit="contain"
@@ -35,12 +35,10 @@ const Showcase = ({ image }: ShowcaseProps) => {
           </p>
         </div>
         <p
-          className="text-xs modal:text-[14px] font-normal text-neutral-900 cursor-pointer hover:opacity-50 transition-all ease-in-out duration-300"
+          className="text-xs modal:text-[14px] font-normal text-neutral-900 cursor-pointer hover:opacity-50 transition-all ease-in-out duration-300 w-full"
           onClick={handleCopy}
         >
-          black and white illustration in a 1920 German children book called The
-          Horse Who Loved His Harness showing an adolescent girl adjusting the
-          harness of a white horse in springtime
+          {image.prompt}
         </p>
       </div>
     </div>
