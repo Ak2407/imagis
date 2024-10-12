@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Imagis | AI Image Generator",
   description:
-    "Ai image generator , generate unlimited images for free no catch!!! 😉",
+    "Ai image generator , generate unlimited images for free no catch included!!! 😉",
   icons: [
     {
       url: "/icon.png",
